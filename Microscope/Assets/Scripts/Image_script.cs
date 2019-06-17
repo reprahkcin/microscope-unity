@@ -12,15 +12,24 @@ public class Image_script : MonoBehaviour
     [SerializeField] private float y_axis;
     [SerializeField] private float coarseFocus;
     [SerializeField] private float fineFocus;
-    [SerializeField] private float zoom1;
-    [SerializeField] private float zoom2;
-    [SerializeField] private float zoom3;
+    [SerializeField] private float zoom1 = 0.25f;
+    [SerializeField] private float zoom2 = 1f;
+    [SerializeField] private float zoom3 = 2.25f;
+    private bool isFocused_1 = false;
+    private bool isFocused_2 = false;
 
-    private float[] scales; 
+    private float[] scales;
+
+    void Update()
+    {
+
+    }
+
     public void ScaleSlide(int adj)
     {
         scales = new float[3] {zoom1,zoom2,zoom3};
-        gameObject.GetComponent<RectTransform>().localScale = new Vector3(scales[adj],scales[adj]);
+        gameObject.GetComponent<RectTransform>().localScale = new Vector3(scales[adj], scales[adj]);
+
     }
 
     public void lampSwitch()

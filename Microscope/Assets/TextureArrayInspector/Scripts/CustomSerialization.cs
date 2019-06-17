@@ -258,7 +258,9 @@ namespace TextureArrayInspector
 				else if (val.type == typeof(Keyframe))
 				{
 					Keyframe k = (Keyframe)val.obj;
+#pragma warning disable CS0618 // Type or member is obsolete
 					writer.WriteLine("\t<" + val.name + " type=" + val.type + " time=" + k.time + " value=" + k.value + " in=" + k.inTangent + " out=" + k.outTangent + " mode=" + k.tangentMode + "/>");
+#pragma warning restore CS0618 // Type or member is obsolete
 				}
 
 				//any other struct (same as class)
@@ -473,7 +475,9 @@ namespace TextureArrayInspector
 					else if (val.type == typeof(Keyframe))
 					{
 						Keyframe k = new Keyframe( (float)lineMembers[2].Parse(typeof(float)), (float)lineMembers[3].Parse(typeof(float)), (float)lineMembers[4].Parse(typeof(float)), (float)lineMembers[5].Parse(typeof(float)) );
+#pragma warning disable CS0618 // Type or member is obsolete
 						k.tangentMode = (int)lineMembers[6].Parse(typeof(int));
+#pragma warning restore CS0618 // Type or member is obsolete
 						val.obj = k;
 					}
 				
