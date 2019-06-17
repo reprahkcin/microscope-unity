@@ -98,6 +98,8 @@
     <Compile Include="Assets\PostProcessing\Editor\Utils\EditorResources.cs" />
     <Compile Include="Assets\PostProcessing\Editor\Utils\FxStyles.cs" />
     <Compile Include="Assets\PostProcessing\Editor\Utils\ReflectionUtils.cs" />
+    <Compile Include="Assets\TextureArrayInspector\Editor\TextureArrayInspector.cs" />
+    <Compile Include="Assets\TextureArrayInspector\Editor\TextureImporter.cs" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>I:/GIT/microscope-unity/Microscope/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
