@@ -1,9 +1,7 @@
-﻿// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
-
-Shader "Custom/BLUR" {
-	
-
-	Properties{
+﻿Shader "Custom/BLUR" 
+{
+	Properties
+	{
 		_Color("Main Color", Color) = (1,1,1,1)
 		_BumpAmt("Distortion", Range(0,128)) = 10
 		_MainTex("Tint Color (RGB)", 2D) = "white" {}
