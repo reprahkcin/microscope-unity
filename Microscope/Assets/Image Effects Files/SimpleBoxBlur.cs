@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using UnityEngine.EventSystems;
 using System;
 
 [ExecuteInEditMode]
@@ -30,4 +29,5 @@ public class SimpleBoxBlur : MonoBehaviour
         Graphics.Blit(rt, dst);
         RenderTexture.ReleaseTemporary(rt);
     }
+
 }
