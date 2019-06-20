@@ -528,6 +528,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 581120465}
+        m_MethodName: ToggleInfo
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &150308602
@@ -3104,6 +3115,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   camera: {fileID: 963194225}
+  light_button: {fileID: 1379487204}
+  info_button: {fileID: 150308599}
+  button_on: {fileID: 5308747809085515294, guid: 80924ce79f849404aaf222d971d2dabb,
+    type: 3}
+  button_off: {fileID: 913646596533684946, guid: 80924ce79f849404aaf222d971d2dabb,
+    type: 3}
+  brightness: {fileID: 1905297662}
 --- !u!65 &581120466
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5981,8 +5999,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: -852733997922658889, guid: 80924ce79f849404aaf222d971d2dabb,
-    type: 3}
+  m_Sprite: {fileID: 913646596533684946, guid: 80924ce79f849404aaf222d971d2dabb, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
