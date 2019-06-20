@@ -24,6 +24,6 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - _Brightness: -0.16000003
+    - _Brightness: -0.04000002
     - _Saturation: 0.056
     m_Colors: []
