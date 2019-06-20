@@ -65,7 +65,7 @@
     <Compile Include="Assets\EffectControls.cs" />
     <Compile Include="Assets\Image Effects Files\Basic.cs" />
     <Compile Include="Assets\Image Effects Files\SimpleBoxBlur.cs" />
-    <Compile Include="Assets\ToggleVis.cs" />
+    <Compile Include="Assets\Scripts\ToggleVis.cs" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro_Properties.cginc" />

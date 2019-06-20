@@ -3,7 +3,11 @@
 public class EffectControls : MonoBehaviour
 {
     public GameObject camera;
-    public float[] zoomLevels = new float[3]{18f,9f,0.5f};
+
+    private float cam_x = 0;
+    private float cam_y = 10;
+    private float cam_z = 0;
+
 
     void Start()
     {
@@ -11,7 +15,7 @@ public class EffectControls : MonoBehaviour
         blurScript.DownRes = -4;
         blurScript.Iterations = -6;
         gameObject.GetComponent<Renderer>().sharedMaterial.SetFloat("_Brightness", -1);
-        camera.transform.position = new Vector3(-10,18,-10);
+        camera.transform.position = new Vector3(0,10,0);
     }
 
     public void ChangeBrightness(float f)
@@ -34,30 +38,17 @@ public class EffectControls : MonoBehaviour
 
     public void TranslateX(float adj)
     {
-
+        cam_x = adj;
+        camera.transform.position = new Vector3(cam_x, cam_y, cam_z);
     }
 
     public void TranslateY(float adj)
     {
-
+        cam_z = adj;
+        camera.transform.position = new Vector3(cam_x, cam_y, cam_z);
     }
 
-    public void Zoom(int level)
-    {
-        camera.transform.position = new Vector3(-10,zoomLevels[level],-10);
-        //check that focus is dialed in
-        //disable coarse focus on zoom level 2-3
-        //SimpleBoxBlur blurScript = camera.GetComponent<SimpleBoxBlur>();
-        //if (blurScript.DownRes == 0 && camera.transform.position.y == zoomLevels[0])
-        //{
-        //    camera.transform.position = new Vector3(0,zoomLevels[1], 0 );
-        //}
 
-        //if (blurScript.DownRes == 0 && camera.transform.position.y == zoomLevels[1])
-        //{
-        //    camera.transform.position = new Vector3(0,zoomLevels[2],0);
-        //}
-    }
 
 
 
