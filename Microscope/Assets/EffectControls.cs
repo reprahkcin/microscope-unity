@@ -8,6 +8,7 @@ public class EffectControls : MonoBehaviour
     private float cam_y = 10;
     private float cam_z = 0;
 
+    private bool lampIsOn = false;
 
     void Start()
     {
@@ -18,9 +19,24 @@ public class EffectControls : MonoBehaviour
         camera.transform.position = new Vector3(0,10,0);
     }
 
+    public void ToggleLamp()
+    {
+        if (lampIsOn)
+        {
+            lampIsOn = false;
+        }
+        else
+        {
+            lampIsOn = true;
+        }
+    }
+
     public void ChangeBrightness(float f)
     {
-        gameObject.GetComponent<Renderer>().sharedMaterial.SetFloat("_Brightness", f);
+        if (lampIsOn)
+        {
+            gameObject.GetComponent<Renderer>().sharedMaterial.SetFloat("_Brightness", f);
+        }
     }
 
     public void CoarseFocus(float adj)
