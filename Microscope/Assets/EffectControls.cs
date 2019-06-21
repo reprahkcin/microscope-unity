@@ -29,7 +29,7 @@ public class EffectControls : MonoBehaviour
 
     void Start()
     {
-        zoomFloats = new[] {10, 9, 4, 0.5f};
+        zoomFloats = new[] {10, 7, 3, 0.5f};
         SimpleBoxBlur blurScript = slideCamera.GetComponent<SimpleBoxBlur>();
         blurScript.DownRes = -4;
         blurScript.Iterations = -6;
@@ -123,9 +123,5 @@ public class EffectControls : MonoBehaviour
         Vector3 pos = slideCamera.transform.position;
         slideCamera.transform.position = new Vector3(pos.x, pos.y, cam_z);
     }
-
-
-
-
 
 }
