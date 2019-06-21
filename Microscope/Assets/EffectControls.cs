@@ -1,14 +1,21 @@
-﻿using UnityEngine;
+﻿using System.Numerics;
+using UnityEngine;
 using UnityEngine.UI;
+using Vector3 = UnityEngine.Vector3;
 
 public class EffectControls : MonoBehaviour
 {
-    public GameObject camera;
+    public GameObject slideCamera;
+    public GameObject microscopeCamera;
     public GameObject light_button;
     public GameObject info_button;
 
+    public int activeObjective = 1;
+    public GameObject[] objectives;
+
     public Sprite button_on;
     public Sprite button_off;
+
     public Slider brightness;
 
     private float cam_x = 0;
@@ -18,16 +25,31 @@ public class EffectControls : MonoBehaviour
     private bool lampIsOn = false;
     private bool infoIsOn = true;
 
+    private float[] zoomFloats;
+
     void Start()
     {
-        //button_on = Resources.Load<Sprite>("UI_atlas_7");
-        //button_off = Resources.Load<Sprite>("UI_atlas_10");
-        SimpleBoxBlur blurScript = camera.GetComponent<SimpleBoxBlur>();
+        zoomFloats = new[] {10, 9, 4, 0.5f};
+        SimpleBoxBlur blurScript = slideCamera.GetComponent<SimpleBoxBlur>();
         blurScript.DownRes = -4;
         blurScript.Iterations = -6;
         gameObject.GetComponent<Renderer>().sharedMaterial.SetFloat("_Brightness", -1);
-        camera.transform.position = new Vector3(0,10,0);
+        slideCamera.transform.position = new Vector3(0,10,0);
+        SwitchActiveObjective(0);
     }
+
+
+    public void SwitchActiveObjective(int obj)
+    {
+        foreach (GameObject button in objectives)
+        {
+            button.GetComponent<Image>().sprite = button_off;
+        }
+
+        objectives[obj].GetComponent<Image>().sprite = button_on;
+        Vector3 pos = slideCamera.transform.position;
+        slideCamera.transform.position = new Vector3(pos.x,zoomFloats[obj],pos.z);
+    } 
 
     public void ToggleInfo()
     {
@@ -35,12 +57,14 @@ public class EffectControls : MonoBehaviour
         {
             infoIsOn = false;
             info_button.GetComponent<Image>().sprite = button_off;
+            microscopeCamera.SetActive(false);
 
         }
         else
         {
             infoIsOn = true;
             info_button.GetComponent<Image>().sprite = button_on;
+            microscopeCamera.SetActive(true);
         }
     }
 
@@ -75,13 +99,13 @@ public class EffectControls : MonoBehaviour
 
     public void CoarseFocus(float adj)
     {
-        SimpleBoxBlur blurScript = camera.GetComponent<SimpleBoxBlur>();
+        SimpleBoxBlur blurScript = slideCamera.GetComponent<SimpleBoxBlur>();
         blurScript.DownRes = (int)Mathf.Round(adj);
 
     }
     public void FineFocus(float adj)
     {
-        SimpleBoxBlur blurScript = camera.GetComponent<SimpleBoxBlur>();
+        SimpleBoxBlur blurScript = slideCamera.GetComponent<SimpleBoxBlur>();
         blurScript.Iterations = (int)Mathf.Round(adj);
 
     }
@@ -89,13 +113,15 @@ public class EffectControls : MonoBehaviour
     public void TranslateX(float adj)
     {
         cam_x = adj;
-        camera.transform.position = new Vector3(cam_x, cam_y, cam_z);
+        Vector3 pos = slideCamera.transform.position;
+        slideCamera.transform.position = new Vector3(cam_x, pos.y, pos.z);
     }
 
     public void TranslateY(float adj)
     {
         cam_z = adj;
-        camera.transform.position = new Vector3(cam_x, cam_y, cam_z);
+        Vector3 pos = slideCamera.transform.position;
+        slideCamera.transform.position = new Vector3(pos.x, pos.y, cam_z);
     }
 
 
