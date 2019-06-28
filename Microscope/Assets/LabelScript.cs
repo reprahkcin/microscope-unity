@@ -20,10 +20,20 @@ public class LabelScript : MonoBehaviour
             lines[i].GetComponent<LineRenderer>().material = lineMaterial;
             lines[i].GetComponent<LineRenderer>().startWidth = lineWidth;
             lines[i].GetComponent<LineRenderer>().endWidth = lineWidth;
-            lines[i].GetComponent<LineRenderer>().SetPosition(0,labels[i].transform.position);
+            lines[i].GetComponent<LineRenderer>().SetPosition(0, labels[i].transform.position);
             lines[i].GetComponent<LineRenderer>().SetPosition(1, objects[i].transform.position);
             lines[i].GetComponent<LineRenderer>().numCornerVertices = 5;
             lines[i].transform.SetParent(labelGroup.transform, false);
+        }
+    }
+
+    void Update()
+    {
+        for (int i = 0; i < objects.Length; i++)
+        {
+            lines[i].GetComponent<LineRenderer>().SetPosition(0, labels[i].transform.position);
+            lines[i].GetComponent<LineRenderer>().SetPosition(1, objects[i].transform.position);
+
         }
 
     }
